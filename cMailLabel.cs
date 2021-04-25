@@ -31,7 +31,6 @@ namespace RA_Killer_V1
                 return this;
             }
             return null;
-            
         }   
     }
 }
