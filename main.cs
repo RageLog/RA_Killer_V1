@@ -24,14 +24,13 @@ namespace RA_Killer_V1
                 //var v = _mDb.SearchFor("Hakediş", "Customer_Site_ID", "AN0001");
                 //_mDb.UpdateData(@"Hakediş", "Customer_Site_ID='AN9999'", "Site_ID ='AN0001'");
 
+                System.Threading.Thread.Sleep(5000);
 
-                Console.ReadLine();
             }
             catch (Exception e)
             {
                 Console.Error.WriteLine(e.Message);
-                Console.ReadLine();
-
+                System.Threading.Thread.Sleep(5000);
             }
         }
     }
