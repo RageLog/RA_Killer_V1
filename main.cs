@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Data.SQLite;
-using System.IO;
-
-using NetOffice.ExcelApi.Enums;
-using NetOffice.ExcelApi.Tools.Contribution;
 
 namespace RA_Killer_V1
 {
-   
+
     class main
     {
         static void Main(string[] args)
         {
             try
             {
-                cDataBase _mDb = new cDataBase("Hakediş.sqlite");
+                cDbHelper _mDb = new cDbHelper("Hakediş.sqlite");
                 //_mDb.CreateTableFromExcelFile("C:\\Users\\cemal\\Desktop\\DataBase.xlsx", "Hakediş");
                 //_mDb.Create();//"C:\\Users\\cemal\\Desktop\\"
                 //_mDb.CreateTable("Hakediş", "No INTEGER PRIMARY KEY AUTOINCREMENT, Site_ID varchar(10), Customer_Site_ID varchar(10), Internal_Site_ID varchar(15),Date DATE");
@@ -23,9 +18,15 @@ namespace RA_Killer_V1
                 //_mDb.RemoveColumnToTable("Hakediş", "Yeni_Col");
                 //var v = _mDb.SearchFor("Hakediş", "Customer_Site_ID", "AN0001");
                 //_mDb.UpdateData(@"Hakediş", "Customer_Site_ID='AN9999'", "Site_ID ='AN0001'");
-
+                var v = _mDb.GetNonRepetitiveValue("Hakediş", "Site_ID,Customer_Site_ID");
+                foreach (var item in v)
+                {
+                    foreach (var i in item)
+                    {
+                        Console.WriteLine(i.Key + " : " + i.Value);
+                    }
+                }
                 System.Threading.Thread.Sleep(5000);
-
             }
             catch (Exception e)
             {

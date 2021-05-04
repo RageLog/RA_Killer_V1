@@ -40,8 +40,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cDataBase.cs" />
-    <Compile Include="cExcelAccesser.cs" />
+    <Compile Include="cDbHelper.cs" />
+    <Compile Include="cExcelHelper.cs" />
     <Compile Include="cMail.cs" />
     <Compile Include="cMailAccesser.cs" />
     <Compile Include="cMailLabel.cs" />

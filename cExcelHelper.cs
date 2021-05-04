@@ -8,13 +8,13 @@ using NetOffice.ExcelApi.Enums;
 namespace RA_Killer_V1
 {
     using Sheets_t = Dictionary<string, Excel.Worksheet>;
-    class cExcelAccesser
+    class cExcelHelper
     {
         
         private Excel.Application _mApplication = new Excel.Application();
         private Excel.Workbook _mWorkBook;
         private Sheets_t _mSheets = new Sheets_t();
-        ~cExcelAccesser() 
+        ~cExcelHelper() 
         {
             
             _mWorkBook.Save();

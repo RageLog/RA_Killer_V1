@@ -8,11 +8,11 @@ using System.Data.SQLite;
 
 namespace RA_Killer_V1
 {
-    class cDataBase 
+    class cDbHelper 
     {
         private string _mDbName;
         private string _mConString;
-        public cDataBase(string dbName = "DB.sqlite")
+        public cDbHelper(string dbName = "DB.sqlite")
         {
             _mDbName = dbName;
             _mConString = "Data Source=" + _mDbName + "; Version=3;";
@@ -117,7 +117,7 @@ namespace RA_Killer_V1
         }
         public List<(string columnName, string type)> CreateTableFromExcelFile(string filePath, string name)
         {
-            cExcelAccesser _mExcel = new cExcelAccesser();
+            cExcelHelper _mExcel = new cExcelHelper();
             (int r, int c) tableSize;
             List<(string columnName, string type)> _mData = new List<(string columnName, string type)>();
             string cloumnsAndTypes = @"";
@@ -156,11 +156,11 @@ namespace RA_Killer_V1
             string columnName = @"";
             string dataInRow = @"";
 
-            cExcelAccesser _mExcel = new cExcelAccesser();
+            cExcelHelper _mExcel = new cExcelHelper();
             (int r, int c) tableSize;
             _mExcel.openWorkBook(filePath);
             tableSize = _mExcel.getTableSize(name);
-            bool tarih = CheckColumnIsExistInTable(name, "Date");
+      
             for (int r = 1; r <= tableSize.r; r++)
             {
                 for (int c = 1; c <= tableSize.c; c++)
@@ -171,17 +171,11 @@ namespace RA_Killer_V1
                         if (CheckColumnIsExistInTable(name, (string)_mExcel.getWorkSheets()[name].Cells[1, c].Value))
                         {
                             columnName += (string)_mExcel.getWorkSheets()[name].Cells[1, c].Value;
-                            if (c == tableSize.c)
+                            if (c != tableSize.c)
                             {
-                                if (tarih)
-                                {
-                                    columnName += ",Date";
-                                }
-                                break;
+                                columnName += ",";
 
                             }
-                            columnName += ",";
-
                         }
                     }
                     else
@@ -195,10 +189,6 @@ namespace RA_Killer_V1
                             }
                             else
                             {
-                                if (tarih)
-                                {
-                                    dataInRow += @",datetime()";
-                                }
                                 InsertToTable(name, columnName, dataInRow);
                                 dataInRow = @"";
 
@@ -360,6 +350,24 @@ namespace RA_Killer_V1
 
             ExecuteNonQuery(SQL);
         }
-
+        public List<Dictionary<string, string>> GetNonRepetitiveValue(string tableName, string columnsName)
+        {
+            List<Dictionary<string, string>> _mData = new List<Dictionary<string, string>>();
+            string[] colNamesAndType = columnsName.Split(',');
+            void func(SQLiteDataReader rdr)
+            {
+                while (rdr.Read())
+                {
+                    Dictionary<string, string> _mDic = new Dictionary<string, string>();
+                    foreach (var item in colNamesAndType)
+                    {
+                        _mDic.Add(item.Trim(), rdr[item.Trim()].ToString());
+                    }
+                    _mData.Add(_mDic);
+                }
+            }
+            ExecuteReader($"SELECT DISTINCT {columnsName} FROM {tableName}; ", func);
+            return _mData;
+        }
     }
 }
