@@ -28,9 +28,9 @@ namespace RA_Killer_V1
                     _mLabel.value = item.Groups["Context"].Value;
                     this.Add(_mLabel);
                 }
-                return this;
+                
             }
-            return null;
+            return this;
         }   
     }
 }

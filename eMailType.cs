@@ -6,6 +6,7 @@ namespace RA_Killer_V1
     {
         TSS,
         SVT,
-        PO
+        PO,
+        NA = -1
     }
 }

@@ -22,8 +22,8 @@ namespace RA_Killer_V1
         public cMailAccesser()
         {
             m_Application = new OutLook.Application();
-            outlookNS = m_Application.GetNamespace("MAPI");
-            mainFolders = outlookNS.Folders as OutLook.Folders;
+            outlookNS = m_Application.GetNamespace("MAPI"); 
+             mainFolders = outlookNS.Folders as OutLook.Folders;
         }
         public void saveAttachment(String  Path, OutLook.Attachment attachment)
         {
@@ -42,13 +42,13 @@ namespace RA_Killer_V1
             {
                 throw new ArgumentNullException(nameof(func));
             }
-            Parallel.ForEach(mainFolders, folder =>
+            Parallel.ForEach(mainFolders, folder  =>
             {
                 Parallel.ForEach(folder.Folders, subFolder => {
-                    foreach (cMail item in subFolder.Items) {
-                        if ((item != null) & (item is cMail))
+                    foreach (var item in subFolder.Items) {
+                        if ((item != null) && (item is OutLook.MailItem))
                         {
-                            func(item, folder, subFolder);
+                             func(new cMail(item as OutLook.MailItem), folder, subFolder);
                         }
                             
                     }
@@ -56,7 +56,7 @@ namespace RA_Killer_V1
             });
                 
         }
-        public void start() {
+        /*public void start() {
 
 
             try {
@@ -82,9 +82,9 @@ namespace RA_Killer_V1
                             System.Console.WriteLine("Body: \n" + body);
                             //mailItem.UnRead = false;
 
-                            System.Console.WriteLine("Please enter the path");
-                            attpath = System.Console.ReadLine();
-                            saveAllAttachment(attpath, mailItem);
+                            //System.Console.WriteLine("Please enter the path");
+                            //attpath = System.Console.ReadLine();
+                           // saveAllAttachment(attpath, mailItem);
                         }
                     
                 }
@@ -95,7 +95,9 @@ namespace RA_Killer_V1
             {
                 System.Console.WriteLine(e.Message);
             }
-        }
+        }*/
+
+
 
     }
 }
