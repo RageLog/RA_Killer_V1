@@ -24,6 +24,7 @@ namespace RA_Killer_V1
             m_Application = new OutLook.Application();
             outlookNS = m_Application.GetNamespace("MAPI"); 
              mainFolders = outlookNS.Folders as OutLook.Folders;
+            
         }
         public void saveAttachment(String  Path, OutLook.Attachment attachment)
         {
