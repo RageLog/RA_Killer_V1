@@ -17,7 +17,7 @@ namespace RA_Killer_V1
         ~cExcelHelper() 
         {
             
-            _mWorkBook.Save();
+            //_mWorkBook.Save();
             _mWorkBook.Close();
             _mWorkBook.Dispose();
             _mApplication.Quit();

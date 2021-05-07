@@ -37,7 +37,7 @@ namespace RA_Killer_V1
         private void Updater_Tick(object sender, EventArgs e)
         {
             mailList = mailGUIHelper.UpdateMailViewer(ref MailViewerList);
-             
+             BodyViewer.DocumentText = "";
         }
 
         private void MailViewerList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -51,13 +51,24 @@ namespace RA_Killer_V1
                 MailViewerList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !isChecked;
                 MailViewerList.EndEdit();
             }
-
-            
         }
 
         private void MailViewerList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            BodyViewer.DocumentText = mailList[MailViewerList.SelectedCells[0].RowIndex].HTMLBody;
+            if ((e.RowIndex != -1))
+            {
+                BodyViewer.DocumentText = mailList[MailViewerList.SelectedCells[0].RowIndex].HTMLBody;
+                if ((MailViewerList.Columns[e.ColumnIndex].Name == "Attachment"))
+                {
+                    ButSaveAtc.Visible = true;
+                }
+                else
+                {
+                    ButSaveAtc.Visible = false;
+
+                }
+            }
+            
         }
 
         private void ButSaveAtc_Click(object sender, EventArgs e)
@@ -79,34 +90,65 @@ namespace RA_Killer_V1
                 }
             }
         }
-    }
-}
 
-/*
- * 
-
-        
-        
-
-        private void button1_Click(object sender, EventArgs e)
+        private void BDCreateBut_Click(object sender, EventArgs e)
         {
-
-            
-            
-
-           
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string dBName = textBox1.Text.Trim().Replace(@" ",@"_");
-            cDbHelper db = new cDbHelper(dBName + ".db");
-            if (DialogResult.OK == folderBrowserDialog1.ShowDialog())
+            string dBName = DBNameTB.Text.Trim().Replace(@" ", @"_");
+            if (dBName.Length != 0)
             {
-                string _mPath = folderBrowserDialog1.SelectedPath + "\\";
-                db.Create(_mPath);
-
+                if (!File.Exists(DataBasePathTB.Text+ dBName + ".db"))
+                {
+                    cDbHelper db = new cDbHelper(dBName + ".db", DataBasePathTB.Text);
+                    db.Create();
+                }
+                else
+                {
+                    MessageBox.Show("DataBase already created!", "Warning!", MessageBoxButtons.OK);
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Please type a DataBase name!","Warning!",MessageBoxButtons.OK);
             }
         }
- */
+
+        private void CreateDBFromExcelBut_Click(object sender, EventArgs e)
+        {
+            FileFinder.Filter = @"excel files (*.xlsx,*.xlsm)|*.xlsx;*.xlsm";
+            FileFinder.Multiselect = false;
+            if (DialogResult.OK == FileFinder.ShowDialog())
+            {
+                string dBName = DBNameTB.Text.Trim().Replace(@" ", @"_");
+                if (dBName.Length != 0)
+                {
+                        cDbHelper db = new cDbHelper(dBName + ".db", DataBasePathTB.Text);
+                        db.CreateTableFromExcelFile(FileFinder.FileName);//TO-DO create table for each sheet with that sheet names
+
+                }
+                else
+                {
+                    MessageBox.Show("Please type a DataBase name!", "Warning!", MessageBoxButtons.OK);
+                }
+                //FileFinder.FileName
+                //MessageBox.Show();
+            }
+        }
+
+        private void DBPathBut_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == PathFinder.ShowDialog())
+            {
+                DataBasePathTB.Text = PathFinder.SelectedPath + "\\";
+                //TO-DO:When settings.ini file is implementing, save path to settings.ini file
+            }
+        }
+
+
+        private void RefreshBut_Click(object sender, EventArgs e)
+        {
+            mailList = mailGUIHelper.UpdateMailViewer(ref MailViewerList);
+            BodyViewer.DocumentText = "";
+        }
+    }
+}

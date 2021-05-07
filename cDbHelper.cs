@@ -12,10 +12,10 @@ namespace RA_Killer_V1
     {
         private string _mDbName;
         private string _mConString;
-        public cDbHelper(string dbName = "DB.sqlite")
+        public cDbHelper(string dbName = "DB.sqlite",string path = "")
         {
-            _mDbName = dbName;
-            _mConString = "Data Source=" + _mDbName + "; Version=3;";
+            _mDbName = path+dbName;
+            _mConString = "Data Source=" +_mDbName + "; Version=3;";
         }
         public void ExecuteNonQuery(string SQL)
         {
@@ -77,12 +77,12 @@ namespace RA_Killer_V1
             }
             return retVal;
         }
-        public void Create(string path = @"")
+        public void Create()
         {
             
-            if (!File.Exists(path+_mDbName))
+            if (!File.Exists(_mDbName))
             {
-                SQLiteConnection.CreateFile(path + _mDbName);
+                SQLiteConnection.CreateFile(_mDbName);
             }
             else
             {
@@ -115,41 +115,47 @@ namespace RA_Killer_V1
         {
             ExecuteNonQuery($"insert into {tableName} ({columns}) values ({values})");
         }
-        public List<(string columnName, string type)> CreateTableFromExcelFile(string filePath, string name)
+        public Dictionary<string, List<(string columnName, string type)>> CreateTableFromExcelFile(string filePath)
         {
             cExcelHelper _mExcel = new cExcelHelper();
-            (int r, int c) tableSize;
-            List<(string columnName, string type)> _mData = new List<(string columnName, string type)>();
-            string cloumnsAndTypes = @"";
+            Dictionary<string, List<(string columnName, string type)>> DataOfTable = new Dictionary<string, List<(string columnName, string type)>>();
+            
+            
 
             _mExcel.openWorkBook(filePath);
-            tableSize = _mExcel.getTableSize(name);
-            Create();
-            if (tableSize.r == 2)
+            foreach (var item in _mExcel.getWorkSheets())
             {
-                for (int i = 1; i <= tableSize.c; i++)
+                string cloumnsAndTypes = @"";
+                List<(string columnName, string type)> _mData = new List<(string columnName, string type)>();
+                (int r, int c) tableSize = _mExcel.getTableSize(item.Key);
+                if (tableSize.r == 2)
                 {
-                    _mData.Add(((string columnName, string type))(_mExcel.getWorkSheets()[name].Cells[1, i].Value, _mExcel.getWorkSheets()[name].Cells[2, i].Value));
-                }
+                    for (int i = 1; i <= tableSize.c; i++)
+                    {
+                        _mData.Add(((string columnName, string type))(item.Value.Cells[1, i].Value, item.Value.Cells[2, i].Value));
+                    }
 
-            }
-            else
-            {
-                return null;
-            }
-            for (int i = 0; i < _mData.Count; i++)
-            {
-                if (i != (_mData.Count - 1))
-                {
-                    cloumnsAndTypes += _mData[i].columnName + @" " + _mData[i].type + @",";
                 }
                 else
                 {
-                    cloumnsAndTypes += _mData[i].columnName + @" " + _mData[i].type;
+                    continue;
                 }
+                for (int i = 0; i < _mData.Count; i++)
+                {
+                    if (i != (_mData.Count - 1))
+                    {
+                        cloumnsAndTypes += _mData[i].columnName + @" " + _mData[i].type + @",";
+                    }
+                    else
+                    {
+                        cloumnsAndTypes += _mData[i].columnName + @" " + _mData[i].type;
+                    }
+                }
+                CreateTable(item.Key, cloumnsAndTypes);
+                DataOfTable.Add(item.Key, _mData);
             }
-            CreateTable(name, cloumnsAndTypes);
-            return _mData;
+            
+            return DataOfTable;
         }
         public void InsertFromExcelFile(string filePath, string name)
         {

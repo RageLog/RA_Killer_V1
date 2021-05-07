@@ -9,6 +9,7 @@ using System.Data.SQLite;
 using OutLook = NetOffice.OutlookApi;
 using NetOffice.OutlookApi.Enums;
 using System.IO;
+using System.Collections.Generic;
 
 namespace RA_Killer_V1
 {
@@ -56,6 +57,32 @@ namespace RA_Killer_V1
                 });
             });
                 
+        }
+        public void trevalMailItemsParallel(Action<cMail, OutLook.MAPIFolder, OutLook.MAPIFolder> func,int loopCount)
+        {
+            if (func is null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+            Parallel.ForEach(mainFolders, folder =>
+            {
+                Parallel.ForEach(folder.Folders, subFolder => {
+                    
+                    
+                    for (int i = subFolder.Items.Count; i > (subFolder.Items.Count-loopCount) && i > 0; i--)
+                    {
+                        if ((subFolder.Items[i] != null) && (subFolder.Items[i] is OutLook.MailItem))
+                        {
+                            
+                            func(new cMail(subFolder.Items[i] as OutLook.MailItem), folder, subFolder);
+                            
+                        }
+                       
+                    }
+
+                });
+            });
+
         }
         /*public void start() {
 

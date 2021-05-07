@@ -19,6 +19,7 @@ namespace RA_Killer_V1
             {
                 Console.Error.WriteLine(e.Message);
                 //Console.ReadKey();
+                GC.Collect();
                 System.Threading.Thread.Sleep(5000);
             }
         }

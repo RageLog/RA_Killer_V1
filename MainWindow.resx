@@ -117,41 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="tabPage1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 100</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 100</value>
-  </data>
-  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tabControl1.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
     <value>Bottom</value>
@@ -168,8 +133,9 @@
   <data name="BodyViewer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="BodyViewer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 310</value>
+    <value>5, 310</value>
   </data>
   <data name="BodyViewer.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -177,6 +143,7 @@
   <data name="BodyViewer.Size" type="System.Drawing.Size, System.Drawing">
     <value>778, 159</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BodyViewer.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -246,6 +213,36 @@
   <data name="ButonPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
   </data>
+  <data name="RefreshBut.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="RefreshBut.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Ink Free, 9pt, style=Bold</value>
+  </data>
+  <data name="RefreshBut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 445</value>
+  </data>
+  <data name="RefreshBut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 23</value>
+  </data>
+  <data name="RefreshBut.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="RefreshBut.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="&gt;&gt;RefreshBut.Name" xml:space="preserve">
+    <value>RefreshBut</value>
+  </data>
+  <data name="&gt;&gt;RefreshBut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RefreshBut.Parent" xml:space="preserve">
+    <value>ButonPanel</value>
+  </data>
+  <data name="&gt;&gt;RefreshBut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="ButSaveAtc.AccessibleDescription" xml:space="preserve">
     <value>ButSaveAtc</value>
   </data>
@@ -273,6 +270,9 @@
   <data name="ButSaveAtc.Text" xml:space="preserve">
     <value>Save Attachment</value>
   </data>
+  <data name="ButSaveAtc.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;ButSaveAtc.Name" xml:space="preserve">
     <value>ButSaveAtc</value>
   </data>
@@ -283,7 +283,7 @@
     <value>ButonPanel</value>
   </data>
   <data name="&gt;&gt;ButSaveAtc.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="ButonPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>792, 3</value>
@@ -360,35 +360,371 @@
   <data name="&gt;&gt;Hakediş.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="Option.AccessibleDescription" xml:space="preserve">
-    <value>Options</value>
+  <data name="DataBaseViewer.AccessibleDescription" xml:space="preserve">
+    <value>DBViewerTab</value>
   </data>
-  <data name="Option.AccessibleName" xml:space="preserve">
-    <value>Options</value>
+  <data name="DataBaseViewer.AccessibleName" xml:space="preserve">
+    <value>DBViewerTab</value>
   </data>
-  <data name="Option.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 4</value>
+  <data name="DBViewer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="Option.Size" type="System.Drawing.Size, System.Drawing">
-    <value>966, 475</value>
+  <data name="DBViewer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="Option.TabIndex" type="System.Int32, mscorlib">
+  <data name="DBViewer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>749, 469</value>
+  </data>
+  <data name="DBViewer.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="Option.Text" xml:space="preserve">
-    <value>Options</value>
+  <data name="&gt;&gt;DBViewer.Name" xml:space="preserve">
+    <value>DBViewer</value>
   </data>
-  <data name="&gt;&gt;Option.Name" xml:space="preserve">
-    <value>Option</value>
+  <data name="&gt;&gt;DBViewer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Option.Type" xml:space="preserve">
+  <data name="&gt;&gt;DBViewer.Parent" xml:space="preserve">
+    <value>DataBaseViewer</value>
+  </data>
+  <data name="&gt;&gt;DBViewer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DBViewerPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Right</value>
+  </data>
+  <data name="DBViewerPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>758, 8</value>
+  </data>
+  <data name="DBViewerPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 464</value>
+  </data>
+  <data name="DBViewerPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DBViewerPanel.Name" xml:space="preserve">
+    <value>DBViewerPanel</value>
+  </data>
+  <data name="&gt;&gt;DBViewerPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBViewerPanel.Parent" xml:space="preserve">
+    <value>DataBaseViewer</value>
+  </data>
+  <data name="&gt;&gt;DBViewerPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DataBaseViewer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="DataBaseViewer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>966, 475</value>
+  </data>
+  <data name="DataBaseViewer.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="DataBaseViewer.Text" xml:space="preserve">
+    <value>DataBaseViewer</value>
+  </data>
+  <data name="&gt;&gt;DataBaseViewer.Name" xml:space="preserve">
+    <value>DataBaseViewer</value>
+  </data>
+  <data name="&gt;&gt;DataBaseViewer.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Option.Parent" xml:space="preserve">
+  <data name="&gt;&gt;DataBaseViewer.Parent" xml:space="preserve">
     <value>tabControl1</value>
   </data>
-  <data name="&gt;&gt;Option.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;DataBaseViewer.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="Options.AccessibleDescription" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Options.AccessibleName" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="DataBaseSettingPanel.AccessibleDescription" xml:space="preserve">
+    <value>DataBaseSettingPanel</value>
+  </data>
+  <data name="DataBaseSettingPanel.AccessibleName" xml:space="preserve">
+    <value>DataBaseSettingPanel</value>
+  </data>
+  <data name="DBPathBut.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DBPathBut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 49</value>
+  </data>
+  <data name="DBPathBut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 20</value>
+  </data>
+  <data name="DBPathBut.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DBPathBut.Text" xml:space="preserve">
+    <value>Select DB Path</value>
+  </data>
+  <data name="&gt;&gt;DBPathBut.Name" xml:space="preserve">
+    <value>DBPathBut</value>
+  </data>
+  <data name="&gt;&gt;DBPathBut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBPathBut.Parent" xml:space="preserve">
+    <value>CreateDB</value>
+  </data>
+  <data name="&gt;&gt;DBPathBut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DataBasePathTB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 23</value>
+  </data>
+  <data name="DataBasePathTB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 20</value>
+  </data>
+  <data name="DataBasePathTB.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="DataBasePathTB.Text" xml:space="preserve">
+    <value>.\</value>
+  </data>
+  <data name="&gt;&gt;DataBasePathTB.Name" xml:space="preserve">
+    <value>DataBasePathTB</value>
+  </data>
+  <data name="&gt;&gt;DataBasePathTB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataBasePathTB.Parent" xml:space="preserve">
+    <value>CreateDB</value>
+  </data>
+  <data name="&gt;&gt;DataBasePathTB.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DBPathLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DBPathLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>223, 4</value>
+  </data>
+  <data name="DBPathLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 13</value>
+  </data>
+  <data name="DBPathLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="DBPathLabel.Text" xml:space="preserve">
+    <value>DataBase Path:</value>
+  </data>
+  <data name="&gt;&gt;DBPathLabel.Name" xml:space="preserve">
+    <value>DBPathLabel</value>
+  </data>
+  <data name="&gt;&gt;DBPathLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBPathLabel.Parent" xml:space="preserve">
+    <value>CreateDB</value>
+  </data>
+  <data name="&gt;&gt;DBPathLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="CreateDBFromExcelBut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>197, 49</value>
+  </data>
+  <data name="CreateDBFromExcelBut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 20</value>
+  </data>
+  <data name="CreateDBFromExcelBut.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="CreateDBFromExcelBut.Text" xml:space="preserve">
+    <value>Create Table From Excel</value>
+  </data>
+  <data name="&gt;&gt;CreateDBFromExcelBut.Name" xml:space="preserve">
+    <value>CreateDBFromExcelBut</value>
+  </data>
+  <data name="&gt;&gt;CreateDBFromExcelBut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CreateDBFromExcelBut.Parent" xml:space="preserve">
+    <value>CreateDB</value>
+  </data>
+  <data name="&gt;&gt;CreateDBFromExcelBut.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="BDCreateBut.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BDCreateBut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 49</value>
+  </data>
+  <data name="BDCreateBut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="BDCreateBut.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="BDCreateBut.Text" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="&gt;&gt;BDCreateBut.Name" xml:space="preserve">
+    <value>BDCreateBut</value>
+  </data>
+  <data name="&gt;&gt;BDCreateBut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BDCreateBut.Parent" xml:space="preserve">
+    <value>CreateDB</value>
+  </data>
+  <data name="&gt;&gt;BDCreateBut.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="DBNameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DBNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 7</value>
+  </data>
+  <data name="DBNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 13</value>
+  </data>
+  <data name="DBNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="DBNameLabel.Text" xml:space="preserve">
+    <value>DataBase Name:</value>
+  </data>
+  <data name="&gt;&gt;DBNameLabel.Name" xml:space="preserve">
+    <value>DBNameLabel</value>
+  </data>
+  <data name="&gt;&gt;DBNameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBNameLabel.Parent" xml:space="preserve">
+    <value>CreateDB</value>
+  </data>
+  <data name="&gt;&gt;DBNameLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="DBNameTB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 23</value>
+  </data>
+  <data name="DBNameTB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 20</value>
+  </data>
+  <data name="DBNameTB.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DBNameTB.Name" xml:space="preserve">
+    <value>DBNameTB</value>
+  </data>
+  <data name="&gt;&gt;DBNameTB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBNameTB.Parent" xml:space="preserve">
+    <value>CreateDB</value>
+  </data>
+  <data name="&gt;&gt;DBNameTB.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="CreateDB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 22</value>
+  </data>
+  <data name="CreateDB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 87</value>
+  </data>
+  <data name="CreateDB.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;CreateDB.Name" xml:space="preserve">
+    <value>CreateDB</value>
+  </data>
+  <data name="&gt;&gt;CreateDB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CreateDB.Parent" xml:space="preserve">
+    <value>DataBaseSettingPanel</value>
+  </data>
+  <data name="&gt;&gt;CreateDB.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DataBaseLabel.AccessibleDescription" xml:space="preserve">
+    <value>DataBaseLabel</value>
+  </data>
+  <data name="DataBaseLabel.AccessibleName" xml:space="preserve">
+    <value>DataBaseLabel</value>
+  </data>
+  <data name="DataBaseLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DataBaseLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 6</value>
+  </data>
+  <data name="DataBaseLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="DataBaseLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="DataBaseLabel.Text" xml:space="preserve">
+    <value>DataBase:</value>
+  </data>
+  <data name="&gt;&gt;DataBaseLabel.Name" xml:space="preserve">
+    <value>DataBaseLabel</value>
+  </data>
+  <data name="&gt;&gt;DataBaseLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataBaseLabel.Parent" xml:space="preserve">
+    <value>DataBaseSettingPanel</value>
+  </data>
+  <data name="&gt;&gt;DataBaseLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DataBaseSettingPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="DataBaseSettingPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>378, 122</value>
+  </data>
+  <data name="DataBaseSettingPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DataBaseSettingPanel.Name" xml:space="preserve">
+    <value>DataBaseSettingPanel</value>
+  </data>
+  <data name="&gt;&gt;DataBaseSettingPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataBaseSettingPanel.Parent" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="&gt;&gt;DataBaseSettingPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Options.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="Options.Size" type="System.Drawing.Size, System.Drawing">
+    <value>966, 475</value>
+  </data>
+  <data name="Options.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Options.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="&gt;&gt;Options.Name" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="&gt;&gt;Options.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Options.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;Options.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -447,11 +783,14 @@
   <data name="PathFinder.Description" xml:space="preserve">
     <value>PathFinder</value>
   </data>
+  <metadata name="FileFinder.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>214, 21</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>40</value>
+    <value>25</value>
   </metadata>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -476,6 +815,12 @@
   </data>
   <data name="&gt;&gt;PathFinder.Type" xml:space="preserve">
     <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FileFinder.Name" xml:space="preserve">
+    <value>FileFinder</value>
+  </data>
+  <data name="&gt;&gt;FileFinder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainWindow</value>
