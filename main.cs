@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace RA_Killer_V1
 {
-
+    
     class main
     {
         [STAThread]
@@ -11,8 +11,6 @@ namespace RA_Killer_V1
         {
             try
             {
-
-
                 Application.Run(new MainWindow());
             }
             catch (Exception e)

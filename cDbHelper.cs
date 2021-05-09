@@ -157,54 +157,63 @@ namespace RA_Killer_V1
             
             return DataOfTable;
         }
-        public void InsertFromExcelFile(string filePath, string name)
+        public void InsertFromExcelFile(string filePath)
         {
-            string columnName = @"";
-            string dataInRow = @"";
-
             cExcelHelper _mExcel = new cExcelHelper();
-            (int r, int c) tableSize;
             _mExcel.openWorkBook(filePath);
-            tableSize = _mExcel.getTableSize(name);
-      
-            for (int r = 1; r <= tableSize.r; r++)
+            foreach (var item in _mExcel.getWorkSheets())
             {
-                for (int c = 1; c <= tableSize.c; c++)
+                string columnName = @"";
+                string dataInRow = @"";
+                (int r, int c) tableSize = _mExcel.getTableSize(item.Key);
+                if (CheckTableIsExist(item.Key))
                 {
-                    if (r == 1)
+                    for (int r = 1; r <= tableSize.r; r++)
                     {
-
-                        if (CheckColumnIsExistInTable(name, (string)_mExcel.getWorkSheets()[name].Cells[1, c].Value))
+                        for (int c = 1; c <= tableSize.c; c++)
                         {
-                            columnName += (string)_mExcel.getWorkSheets()[name].Cells[1, c].Value;
-                            if (c != tableSize.c)
+                            if (r == 1)
                             {
-                                columnName += ",";
 
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (CheckColumnIsExistInTable(name, (string)_mExcel.getWorkSheets()[name].Cells[1, c].Value))
-                        {
-                            dataInRow += $"'{_mExcel.getWorkSheets()[name].Cells[r, c].Value}'";
-                            if (c != tableSize.c)
-                            {
-                                dataInRow += ",";
+                                if (CheckColumnIsExistInTable(item.Key, (string)item.Value.Cells[1, c].Value))
+                                {
+                                    columnName += (string)item.Value.Cells[1, c].Value;
+                                    if (c != tableSize.c)
+                                    {
+                                        columnName += ",";
+
+                                    }
+                                }
                             }
                             else
                             {
-                                InsertToTable(name, columnName, dataInRow);
-                                dataInRow = @"";
+                                if (CheckColumnIsExistInTable(item.Key, (string)item.Value.Cells[1, c].Value))
+                                {
+                                    dataInRow += $"'{item.Value.Cells[r, c].Value}'";
+                                    if (c != tableSize.c)
+                                    {
+                                        dataInRow += ",";
+                                    }
+                                    else
+                                    {
+                                        InsertToTable(item.Key, columnName, dataInRow);
+                                        dataInRow = @"";
 
+                                    }
+
+                                }
                             }
-
                         }
                     }
-
                 }
+               
             }
+                
+            
+
+            
+      
+            
         }
         public void AddColumnToTable(string tableName, string columnName, string columnType)
         {

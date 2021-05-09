@@ -393,6 +393,108 @@
   <data name="DBViewerPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
   </data>
+  <data name="AddDataBut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 0</value>
+  </data>
+  <data name="AddDataBut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 47</value>
+  </data>
+  <data name="AddDataBut.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="AddDataBut.Text" xml:space="preserve">
+    <value>Add Data From Excel</value>
+  </data>
+  <data name="&gt;&gt;AddDataBut.Name" xml:space="preserve">
+    <value>AddDataBut</value>
+  </data>
+  <data name="&gt;&gt;AddDataBut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AddDataBut.Parent" xml:space="preserve">
+    <value>DBViewerPanel</value>
+  </data>
+  <data name="&gt;&gt;AddDataBut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OpenDBBut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="OpenDBBut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 47</value>
+  </data>
+  <data name="OpenDBBut.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="OpenDBBut.Text" xml:space="preserve">
+    <value>Open DataBase</value>
+  </data>
+  <data name="&gt;&gt;OpenDBBut.Name" xml:space="preserve">
+    <value>OpenDBBut</value>
+  </data>
+  <data name="&gt;&gt;OpenDBBut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OpenDBBut.Parent" xml:space="preserve">
+    <value>DBViewerPanel</value>
+  </data>
+  <data name="&gt;&gt;OpenDBBut.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DBListBoxLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="DBListBoxLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DBListBoxLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 177</value>
+  </data>
+  <data name="DBListBoxLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 13</value>
+  </data>
+  <data name="DBListBoxLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="DBListBoxLabel.Text" xml:space="preserve">
+    <value>Tables of DataBase</value>
+  </data>
+  <data name="&gt;&gt;DBListBoxLabel.Name" xml:space="preserve">
+    <value>DBListBoxLabel</value>
+  </data>
+  <data name="&gt;&gt;DBListBoxLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBListBoxLabel.Parent" xml:space="preserve">
+    <value>DBViewerPanel</value>
+  </data>
+  <data name="&gt;&gt;DBListBoxLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="DBListBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="DBListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 197</value>
+  </data>
+  <data name="DBListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 264</value>
+  </data>
+  <data name="DBListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DBListBox.Name" xml:space="preserve">
+    <value>DBListBox</value>
+  </data>
+  <data name="&gt;&gt;DBListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DBListBox.Parent" xml:space="preserve">
+    <value>DBViewerPanel</value>
+  </data>
+  <data name="&gt;&gt;DBListBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="DBViewerPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>758, 8</value>
   </data>
@@ -784,7 +886,7 @@
     <value>PathFinder</value>
   </data>
   <metadata name="FileFinder.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>214, 21</value>
+    <value>213, 16</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

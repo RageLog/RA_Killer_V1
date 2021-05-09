@@ -100,5 +100,14 @@ namespace RA_Killer_V1
         }
 
     }
+    class cDBGuiHelper : cGUIHelper
+    {
+        cDbHelper dbHelper;
+        public override object InitHelper()
+        {
+
+            return dbHelper;
+        }
+    }
     
 }

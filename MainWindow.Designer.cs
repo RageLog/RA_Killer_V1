@@ -42,7 +42,11 @@ namespace RA_Killer_V1
             this.ButSaveAtc = new System.Windows.Forms.Button();
             this.Hakediş = new System.Windows.Forms.TabPage();
             this.DataBaseViewer = new System.Windows.Forms.TabPage();
+            this.DBViewer = new System.Windows.Forms.DataGridView();
             this.DBViewerPanel = new System.Windows.Forms.Panel();
+            this.OpenDBBut = new System.Windows.Forms.Button();
+            this.DBListBoxLabel = new System.Windows.Forms.Label();
+            this.DBListBox = new System.Windows.Forms.ListBox();
             this.Options = new System.Windows.Forms.TabPage();
             this.DataBaseSettingPanel = new System.Windows.Forms.Panel();
             this.CreateDB = new System.Windows.Forms.Panel();
@@ -57,7 +61,7 @@ namespace RA_Killer_V1
             this.Updater = new System.Windows.Forms.Timer(this.components);
             this.PathFinder = new System.Windows.Forms.FolderBrowserDialog();
             this.FileFinder = new System.Windows.Forms.OpenFileDialog();
-            this.DBViewer = new System.Windows.Forms.DataGridView();
+            this.AddDataBut = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.MailViewer.SuspendLayout();
@@ -65,10 +69,11 @@ namespace RA_Killer_V1
             ((System.ComponentModel.ISupportInitialize)(this.MailViewerList)).BeginInit();
             this.ButonPanel.SuspendLayout();
             this.DataBaseViewer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DBViewer)).BeginInit();
+            this.DBViewerPanel.SuspendLayout();
             this.Options.SuspendLayout();
             this.DataBaseSettingPanel.SuspendLayout();
             this.CreateDB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DBViewer)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -162,11 +167,42 @@ namespace RA_Killer_V1
             this.DataBaseViewer.Controls.Add(this.DBViewerPanel);
             this.DataBaseViewer.Name = "DataBaseViewer";
             // 
+            // DBViewer
+            // 
+            resources.ApplyResources(this.DBViewer, "DBViewer");
+            this.DBViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DBViewer.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.DBViewer.Name = "DBViewer";
+            // 
             // DBViewerPanel
             // 
             resources.ApplyResources(this.DBViewerPanel, "DBViewerPanel");
             this.DBViewerPanel.BackColor = System.Drawing.Color.Gray;
+            this.DBViewerPanel.Controls.Add(this.AddDataBut);
+            this.DBViewerPanel.Controls.Add(this.OpenDBBut);
+            this.DBViewerPanel.Controls.Add(this.DBListBoxLabel);
+            this.DBViewerPanel.Controls.Add(this.DBListBox);
             this.DBViewerPanel.Name = "DBViewerPanel";
+            // 
+            // OpenDBBut
+            // 
+            this.OpenDBBut.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.OpenDBBut, "OpenDBBut");
+            this.OpenDBBut.Name = "OpenDBBut";
+            this.OpenDBBut.UseVisualStyleBackColor = false;
+            this.OpenDBBut.Click += new System.EventHandler(this.OpenDBBut_Click);
+            // 
+            // DBListBoxLabel
+            // 
+            resources.ApplyResources(this.DBListBoxLabel, "DBListBoxLabel");
+            this.DBListBoxLabel.Name = "DBListBoxLabel";
+            // 
+            // DBListBox
+            // 
+            resources.ApplyResources(this.DBListBox, "DBListBox");
+            this.DBListBox.FormattingEnabled = true;
+            this.DBListBox.Name = "DBListBox";
+            this.DBListBox.Sorted = true;
             // 
             // Options
             // 
@@ -252,12 +288,13 @@ namespace RA_Killer_V1
             // 
             resources.ApplyResources(this.PathFinder, "PathFinder");
             // 
-            // DBViewer
+            // AddDataBut
             // 
-            resources.ApplyResources(this.DBViewer, "DBViewer");
-            this.DBViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DBViewer.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.DBViewer.Name = "DBViewer";
+            this.AddDataBut.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.AddDataBut, "AddDataBut");
+            this.AddDataBut.Name = "AddDataBut";
+            this.AddDataBut.UseVisualStyleBackColor = false;
+            this.AddDataBut.Click += new System.EventHandler(this.AddDataBut_Click);
             // 
             // MainWindow
             // 
@@ -278,12 +315,14 @@ namespace RA_Killer_V1
             ((System.ComponentModel.ISupportInitialize)(this.MailViewerList)).EndInit();
             this.ButonPanel.ResumeLayout(false);
             this.DataBaseViewer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DBViewer)).EndInit();
+            this.DBViewerPanel.ResumeLayout(false);
+            this.DBViewerPanel.PerformLayout();
             this.Options.ResumeLayout(false);
             this.DataBaseSettingPanel.ResumeLayout(false);
             this.DataBaseSettingPanel.PerformLayout();
             this.CreateDB.ResumeLayout(false);
             this.CreateDB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DBViewer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -316,5 +355,9 @@ namespace RA_Killer_V1
         private System.Windows.Forms.TabPage DataBaseViewer;
         private System.Windows.Forms.Panel DBViewerPanel;
         private System.Windows.Forms.DataGridView DBViewer;
+        private System.Windows.Forms.ListBox DBListBox;
+        private System.Windows.Forms.Button OpenDBBut;
+        private System.Windows.Forms.Label DBListBoxLabel;
+        private System.Windows.Forms.Button AddDataBut;
     }
 }
