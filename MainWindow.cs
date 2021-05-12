@@ -16,10 +16,14 @@ namespace RA_Killer_V1
     {
         List<cMail> mailList;
         CMailGUIHelper mailGUIHelper;
+        cDBGuiHelper DBHelper;
 
         public MainWindow()
         {
             mailGUIHelper = new CMailGUIHelper();
+            mailGUIHelper.InitHelper();
+            DBHelper = new cDBGuiHelper();
+
             InitializeComponent();
         }
         ~MainWindow()
@@ -28,7 +32,6 @@ namespace RA_Killer_V1
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            mailGUIHelper.InitHelper();
             mailGUIHelper.InıtMailViewerHelper(ref MailViewerList);
             mailList = mailGUIHelper.UpdateMailViewer(ref MailViewerList);
         }
@@ -140,17 +143,37 @@ namespace RA_Killer_V1
         }
         private void OpenDBBut_Click(object sender, EventArgs e)
         {
-            FileFinder.Filter = @"excel files (*.xlsx,*.xlsm)|*.xlsx;*.xlsm";
+            FileFinder.Filter = @"excel files (*.sqlite,*.db)|*.sqlite;*.db";
             FileFinder.Multiselect = false;
             if (DialogResult.OK == FileFinder.ShowDialog())
             {
-
+                DBHelper.setDbHelper(FileFinder.FileName);
+                DBHelper.InıtDBViewerHelper(ref DBViewer,ref DBListBox);
             }
         }
 
         private void AddDataBut_Click(object sender, EventArgs e)
         {
 
+            FileFinder.Filter = @"excel files (*.xlsx,*.xlsm)|*.xlsx;*.xlsm";
+            FileFinder.Multiselect = false;
+            if (DialogResult.OK == FileFinder.ShowDialog())
+            {
+                DBHelper.AddDataFromExcel(FileFinder.FileName);
+                DBHelper.InıtDBViewerHelper(ref DBViewer, ref DBListBox);
+            }
+           
+        }
+
+        private void DBViewer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DBListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            DBHelper.UpdateDBViewer(ref DBViewer, ref DBListBox);
         }
     }
 }

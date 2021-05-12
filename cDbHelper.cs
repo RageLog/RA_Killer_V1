@@ -384,5 +384,44 @@ namespace RA_Killer_V1
             ExecuteReader($"SELECT DISTINCT {columnsName} FROM {tableName}; ", func);
             return _mData;
         }
+        public List<Dictionary<string, string>> GetAllValue(string tableName)
+        {
+            List<Dictionary<string, string>> _mData = new List<Dictionary<string, string>>();
+            var colList = GetColumnNames(tableName);
+            
+            void func(SQLiteDataReader rdr)
+            {
+                while (rdr.Read())
+                {
+                    Dictionary<string, string> _mDic = new Dictionary<string, string>();
+                    foreach (var item in colList)
+                    {
+                        _mDic.Add(item.columnName, rdr[item.columnName].ToString());
+                    }
+                    _mData.Add(_mDic);
+                }
+            }
+            ExecuteReader($"SELECT * FROM {tableName}; ", func);
+            return _mData;
+        }
+        public List<string> GetTablesName()
+        {
+            List<string> tables = new List<string>();
+
+
+            void func(SQLiteDataReader rdr)
+            {
+                
+                while (rdr.Read())
+                {
+                    tables.Add(rdr.GetString(0));
+                    
+                }
+            }
+            ExecuteReader($"SELECT name FROM sqlite_master WHERE type='table' ORDER BY 1;", func);
+           
+
+            return tables;
+        }
     }
 }

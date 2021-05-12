@@ -44,6 +44,7 @@ namespace RA_Killer_V1
             this.DataBaseViewer = new System.Windows.Forms.TabPage();
             this.DBViewer = new System.Windows.Forms.DataGridView();
             this.DBViewerPanel = new System.Windows.Forms.Panel();
+            this.AddDataBut = new System.Windows.Forms.Button();
             this.OpenDBBut = new System.Windows.Forms.Button();
             this.DBListBoxLabel = new System.Windows.Forms.Label();
             this.DBListBox = new System.Windows.Forms.ListBox();
@@ -61,7 +62,6 @@ namespace RA_Killer_V1
             this.Updater = new System.Windows.Forms.Timer(this.components);
             this.PathFinder = new System.Windows.Forms.FolderBrowserDialog();
             this.FileFinder = new System.Windows.Forms.OpenFileDialog();
-            this.AddDataBut = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.MailViewer.SuspendLayout();
@@ -169,10 +169,18 @@ namespace RA_Killer_V1
             // 
             // DBViewer
             // 
+            this.DBViewer.AllowUserToAddRows = false;
+            this.DBViewer.AllowUserToDeleteRows = false;
             resources.ApplyResources(this.DBViewer, "DBViewer");
+            this.DBViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.DBViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DBViewer.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.DBViewer.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DBViewer.Name = "DBViewer";
+            this.DBViewer.ReadOnly = true;
+            this.DBViewer.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DBViewer.TabStop = false;
+            this.DBViewer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DBViewer_CellContentClick);
             // 
             // DBViewerPanel
             // 
@@ -183,6 +191,14 @@ namespace RA_Killer_V1
             this.DBViewerPanel.Controls.Add(this.DBListBoxLabel);
             this.DBViewerPanel.Controls.Add(this.DBListBox);
             this.DBViewerPanel.Name = "DBViewerPanel";
+            // 
+            // AddDataBut
+            // 
+            this.AddDataBut.BackColor = System.Drawing.Color.LightGray;
+            resources.ApplyResources(this.AddDataBut, "AddDataBut");
+            this.AddDataBut.Name = "AddDataBut";
+            this.AddDataBut.UseVisualStyleBackColor = false;
+            this.AddDataBut.Click += new System.EventHandler(this.AddDataBut_Click);
             // 
             // OpenDBBut
             // 
@@ -203,6 +219,7 @@ namespace RA_Killer_V1
             this.DBListBox.FormattingEnabled = true;
             this.DBListBox.Name = "DBListBox";
             this.DBListBox.Sorted = true;
+            this.DBListBox.SelectedIndexChanged += new System.EventHandler(this.DBListBox_SelectedIndexChanged);
             // 
             // Options
             // 
@@ -287,14 +304,6 @@ namespace RA_Killer_V1
             // PathFinder
             // 
             resources.ApplyResources(this.PathFinder, "PathFinder");
-            // 
-            // AddDataBut
-            // 
-            this.AddDataBut.BackColor = System.Drawing.Color.LightGray;
-            resources.ApplyResources(this.AddDataBut, "AddDataBut");
-            this.AddDataBut.Name = "AddDataBut";
-            this.AddDataBut.UseVisualStyleBackColor = false;
-            this.AddDataBut.Click += new System.EventHandler(this.AddDataBut_Click);
             // 
             // MainWindow
             // 

@@ -15,10 +15,10 @@ namespace RA_Killer_V1
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
+                MessageBox.Show(e.Message);
                 //Console.ReadKey();
                 GC.Collect();
-                System.Threading.Thread.Sleep(5000);
+                //System.Threading.Thread.Sleep(5000);
             }
         }
     }

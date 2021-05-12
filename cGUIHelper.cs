@@ -9,18 +9,13 @@ using OutLook = NetOffice.OutlookApi;
 
 namespace RA_Killer_V1
 {
-    abstract class cGUIHelper
-    {
-        public abstract object InitHelper();
-        //public abstract void AccessToGuiObject(ref object obj);
-    }
-    class CMailGUIHelper : cGUIHelper
+    class CMailGUIHelper 
     {
         
         private cMailAccesser mailAccesser;
         private List<cMail> _mMails { get; set; }
         public List<cMail> getMailList() => _mMails;
-        public override object InitHelper()
+        public object InitHelper()
         {
             mailAccesser = new cMailAccesser();
             _mMails = new List<cMail>();
@@ -100,13 +95,73 @@ namespace RA_Killer_V1
         }
 
     }
-    class cDBGuiHelper : cGUIHelper
+    class cDBGuiHelper
     {
-        cDbHelper dbHelper;
-        public override object InitHelper()
+        private cDbHelper dbHelper;
+        public cDBGuiHelper()
+        {
+            dbHelper = null;
+        }
+        public cDBGuiHelper(string dbName)
+        {
+            dbHelper = new cDbHelper(dbName);
+        }
+        public object setDbHelper(string dbName)
+        {
+            dbHelper = new cDbHelper(dbName);
+            return dbHelper;
+        }
+        public cDbHelper getDbHelper() => dbHelper;
+        public void InıtDBViewerHelper(ref DataGridView DataViewer,ref ListBox listBox)
         {
 
-            return dbHelper;
+            listBox.Items.Clear();
+            List<string> tables = dbHelper.GetTablesName();
+            listBox.BeginUpdate();
+            foreach (var item in tables)
+            {
+                listBox.Items.Add(item);
+            }
+            listBox.EndUpdate();
+
+            listBox.SelectedIndex = 0;
+            //MessageBox.Show(listBox.Items[listBox.SelectedIndex].ToString());
+            DataViewer.EndEdit();
+
+
+        }
+
+        public void UpdateDBViewer(ref DataGridView DataViewer,ref ListBox listBox)
+        {
+            DataViewer.Columns.Clear();
+            int i = 0;
+            var colname = dbHelper.GetColumnNames(listBox.Items[listBox.SelectedIndex].ToString());
+            DataViewer.ColumnCount = colname.Count;
+            foreach (var item in colname)
+            {
+                DataViewer.Columns[i].Name = item.columnName;
+                i++;
+            }
+            i = 0;
+            var values =  dbHelper.GetAllValue(listBox.Items[listBox.SelectedIndex].ToString());
+            foreach (var item in values)
+            {
+                DataViewer.Rows.Add();
+                int j = 0;
+                foreach (var it in item)
+                {
+                    DataViewer.Rows[i].Cells[j].Value = it.Value;
+                    j++;
+                }
+                i++;
+            }
+            //var itemList = dbHelper.
+            DataViewer.EndEdit();
+
+        }
+        public void AddDataFromExcel(string filePath)
+        {
+            dbHelper.InsertFromExcelFile(filePath);
         }
     }
     
