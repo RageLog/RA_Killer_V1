@@ -41,6 +41,11 @@ namespace RA_Killer_V1
             this.RefreshBut = new System.Windows.Forms.Button();
             this.ButSaveAtc = new System.Windows.Forms.Button();
             this.Hakediş = new System.Windows.Forms.TabPage();
+            this.HkPanel = new System.Windows.Forms.Panel();
+            this.HkDbViewer = new System.Windows.Forms.DataGridView();
+            this.HkBodyViewer = new System.Windows.Forms.WebBrowser();
+            this.HkMailViewer = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.DataBaseViewer = new System.Windows.Forms.TabPage();
             this.DBViewer = new System.Windows.Forms.DataGridView();
             this.DBViewerPanel = new System.Windows.Forms.Panel();
@@ -68,6 +73,10 @@ namespace RA_Killer_V1
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MailViewerList)).BeginInit();
             this.ButonPanel.SuspendLayout();
+            this.Hakediş.SuspendLayout();
+            this.HkPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HkDbViewer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HkMailViewer)).BeginInit();
             this.DataBaseViewer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DBViewer)).BeginInit();
             this.DBViewerPanel.SuspendLayout();
@@ -157,7 +166,55 @@ namespace RA_Killer_V1
             // 
             resources.ApplyResources(this.Hakediş, "Hakediş");
             this.Hakediş.BackColor = System.Drawing.Color.Silver;
+            this.Hakediş.Controls.Add(this.HkPanel);
+            this.Hakediş.Controls.Add(this.panel3);
             this.Hakediş.Name = "Hakediş";
+            // 
+            // HkPanel
+            // 
+            resources.ApplyResources(this.HkPanel, "HkPanel");
+            this.HkPanel.Controls.Add(this.HkDbViewer);
+            this.HkPanel.Controls.Add(this.HkBodyViewer);
+            this.HkPanel.Controls.Add(this.HkMailViewer);
+            this.HkPanel.Name = "HkPanel";
+            // 
+            // HkDbViewer
+            // 
+            this.HkDbViewer.AllowUserToAddRows = false;
+            this.HkDbViewer.AllowUserToDeleteRows = false;
+            resources.ApplyResources(this.HkDbViewer, "HkDbViewer");
+            this.HkDbViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.HkDbViewer.BackgroundColor = System.Drawing.Color.Azure;
+            this.HkDbViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HkDbViewer.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.HkDbViewer.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.HkDbViewer.Name = "HkDbViewer";
+            this.HkDbViewer.ReadOnly = true;
+            this.HkDbViewer.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.HkDbViewer.TabStop = false;
+            // 
+            // HkBodyViewer
+            // 
+            resources.ApplyResources(this.HkBodyViewer, "HkBodyViewer");
+            this.HkBodyViewer.Name = "HkBodyViewer";
+            this.HkBodyViewer.WebBrowserShortcutsEnabled = false;
+            // 
+            // HkMailViewer
+            // 
+            resources.ApplyResources(this.HkMailViewer, "HkMailViewer");
+            this.HkMailViewer.AllowUserToAddRows = false;
+            this.HkMailViewer.AllowUserToDeleteRows = false;
+            this.HkMailViewer.AllowUserToOrderColumns = true;
+            this.HkMailViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HkMailViewer.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.HkMailViewer.GridColor = System.Drawing.SystemColors.InactiveCaption;
+            this.HkMailViewer.Name = "HkMailViewer";
+            // 
+            // panel3
+            // 
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.BackColor = System.Drawing.Color.Gray;
+            this.panel3.Name = "panel3";
             // 
             // DataBaseViewer
             // 
@@ -312,7 +369,7 @@ namespace RA_Killer_V1
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
-            this.HelpButton = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainWindow";
             this.TransparencyKey = System.Drawing.SystemColors.ActiveBorder;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -323,6 +380,10 @@ namespace RA_Killer_V1
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MailViewerList)).EndInit();
             this.ButonPanel.ResumeLayout(false);
+            this.Hakediş.ResumeLayout(false);
+            this.HkPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.HkDbViewer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HkMailViewer)).EndInit();
             this.DataBaseViewer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DBViewer)).EndInit();
             this.DBViewerPanel.ResumeLayout(false);
@@ -368,5 +429,10 @@ namespace RA_Killer_V1
         private System.Windows.Forms.Button OpenDBBut;
         private System.Windows.Forms.Label DBListBoxLabel;
         private System.Windows.Forms.Button AddDataBut;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel HkPanel;
+        private System.Windows.Forms.DataGridView HkDbViewer;
+        private System.Windows.Forms.WebBrowser HkBodyViewer;
+        private System.Windows.Forms.DataGridView HkMailViewer;
     }
 }

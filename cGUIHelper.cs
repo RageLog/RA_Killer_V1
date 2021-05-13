@@ -9,9 +9,9 @@ using OutLook = NetOffice.OutlookApi;
 
 namespace RA_Killer_V1
 {
-    class CMailGUIHelper 
+    class CMailGUIHelper
     {
-        
+
         private cMailAccesser mailAccesser;
         private List<cMail> _mMails { get; set; }
         public List<cMail> getMailList() => _mMails;
@@ -19,6 +19,7 @@ namespace RA_Killer_V1
         {
             mailAccesser = new cMailAccesser();
             _mMails = new List<cMail>();
+            //
             upDateMailList();
             return mailAccesser;
         }
@@ -28,15 +29,15 @@ namespace RA_Killer_V1
             _mMails.Clear();
             void func(cMail mailItem, OutLook.MAPIFolder folder, OutLook.MAPIFolder subFolder)
             {
-                
+
                 if (mailItem.UnRead)
                 {
                     _mMails.Add(mailItem);
                 }
-                
+
             }
-            mailAccesser.trevalMailItemsParallel(func,20);
-                       
+            mailAccesser.trevalMailItemsParallel(func, 20);
+
         }
         public void InıtMailViewerHelper(ref DataGridView DataViewer)
         {
@@ -68,7 +69,7 @@ namespace RA_Killer_V1
             upDateMailList();
             for (int i = 0; i < _mMails.Count; i++)
             {
-                
+
                 DataViewer.Rows.Add();
                 DataViewer.Rows[i].Cells[0].Value = _mMails[i].UnRead;
                 DataViewer.Rows[i].Cells[1].Value = _mMails[i].SenderName;
@@ -86,12 +87,12 @@ namespace RA_Killer_V1
                     temp = temp.Remove(temp.Length - 2, 2);
                 }
                 DataViewer.Rows[i].Cells[4].Value = temp;
-                
+
             }
             DataViewer.EndEdit();
 
             return _mMails;
-            
+
         }
 
     }
@@ -112,7 +113,7 @@ namespace RA_Killer_V1
             return dbHelper;
         }
         public cDbHelper getDbHelper() => dbHelper;
-        public void InıtDBViewerHelper(ref DataGridView DataViewer,ref ListBox listBox)
+        public void InıtDBViewerHelper(ref DataGridView DataViewer, ref ListBox listBox)
         {
 
             listBox.Items.Clear();
@@ -131,7 +132,7 @@ namespace RA_Killer_V1
 
         }
 
-        public void UpdateDBViewer(ref DataGridView DataViewer,ref ListBox listBox)
+        public void UpdateDBViewer(ref DataGridView DataViewer, ref ListBox listBox)
         {
             DataViewer.Columns.Clear();
             int i = 0;
@@ -143,7 +144,7 @@ namespace RA_Killer_V1
                 i++;
             }
             i = 0;
-            var values =  dbHelper.GetAllValue(listBox.Items[listBox.SelectedIndex].ToString());
+            var values = dbHelper.GetAllValue(listBox.Items[listBox.SelectedIndex].ToString());
             foreach (var item in values)
             {
                 DataViewer.Rows.Add();
@@ -163,6 +164,91 @@ namespace RA_Killer_V1
         {
             dbHelper.InsertFromExcelFile(filePath);
         }
+
+
     }
-    
+
+    //! This class must revise again
+    /*class HakedisGuiHelper
+    {
+        private cDbHelper dbHelper;
+        public object setDbHelper(string dbName)
+        {
+            dbHelper = new cDbHelper(dbName);
+            return dbHelper;
+        }
+        public cDbHelper getDbHelper() => dbHelper;
+        public void InıtMailViewerHelper(ref DataGridView DataViewer)
+        {
+            CMailGUIHelper _mgHelper = new CMailGUIHelper();
+
+            DataGridViewCheckBoxColumn isMailReaded = new DataGridViewCheckBoxColumn();
+            isMailReaded.ValueType = typeof(bool);
+            isMailReaded.Name = "IsReaded";
+            isMailReaded.HeaderText = "IsReaded";
+            isMailReaded.DisplayIndex = 0;
+            DataViewer.ColumnCount = 4;
+            DataViewer.Columns.Insert(0, isMailReaded);
+            DataViewer.Columns[1].Name = "Sender";
+            DataViewer.Columns[2].Name = "Subject";
+            DataViewer.Columns[3].Name = "Type";
+            DataViewer.Columns[4].Name = "Attachment";
+            foreach (DataGridViewColumn column in DataViewer.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+                column.ReadOnly = true;
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            DataViewer.Columns[0].ReadOnly = false;
+            DataViewer.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+        }
+        public List<cMail> UpdateMailViewer(ref DataGridView DataViewer,ref List<cMail> _mMails)
+        {
+            DataViewer.Rows.Clear();
+            for (int i = 0; i < _mMails.Count; i++)
+            {
+
+                DataViewer.Rows.Add();
+                DataViewer.Rows[i].Cells[0].Value = _mMails[i].UnRead;
+                DataViewer.Rows[i].Cells[1].Value = _mMails[i].SenderName;
+                DataViewer.Rows[i].Cells[2].Value = _mMails[i].Subject;
+                _mMails[i].Classification();
+                DataViewer.Rows[i].Cells[3].Value = _mMails[i].getMailType(); ;
+                string temp = @"";
+                foreach (var item in _mMails[i].Attachments)
+                {
+
+                    temp += item.FileName + ", ";
+                }
+                if (temp.Length > 0)
+                {
+                    temp = temp.Remove(temp.Length - 2, 2);
+                }
+                DataViewer.Rows[i].Cells[4].Value = temp;
+
+            }
+            DataViewer.EndEdit();
+
+            return _mMails;
+
+        }
+        public void InıtDBViewerHelper(ref DataGridView DataViewer)
+        {
+
+            listBox.Items.Clear();
+            List<string> tables = dbHelper.GetTablesName();
+            listBox.BeginUpdate();
+            foreach (var item in tables)
+            {
+                listBox.Items.Add(item);
+            }
+            listBox.EndUpdate();
+
+            listBox.SelectedIndex = 0;
+            //MessageBox.Show(listBox.Items[listBox.SelectedIndex].ToString());
+            DataViewer.EndEdit();
+
+
+        }
+    }*/
 }

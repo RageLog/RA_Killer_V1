@@ -25,6 +25,10 @@ namespace RA_Killer_V1
             DBHelper = new cDBGuiHelper();
 
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            //this.MinimizeBox = false;
+            this.WindowState = FormWindowState.Maximized;
         }
         ~MainWindow()
         {
@@ -34,6 +38,7 @@ namespace RA_Killer_V1
         {
             mailGUIHelper.InıtMailViewerHelper(ref MailViewerList);
             mailList = mailGUIHelper.UpdateMailViewer(ref MailViewerList);
+            
         }
         private void Updater_Tick(object sender, EventArgs e)
         {
@@ -42,9 +47,8 @@ namespace RA_Killer_V1
         }
         private void MailViewerList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ((MailViewerList.Columns[e.ColumnIndex].Name == "IsReaded") && (e.RowIndex != -1))
+            if ((MailViewerList.Columns[e.ColumnIndex].Name == "IsReaded") && (e.RowIndex != -1) && (e.ColumnIndex != -1))
             {
-               // MailViewerList.BeginEdit(true);
                 mailList[e.RowIndex].setReaded();
                 bool isChecked = (bool)MailViewerList[e.ColumnIndex, e.RowIndex].EditedFormattedValue;
                 mailList[e.RowIndex].UnRead = isChecked;
@@ -54,7 +58,7 @@ namespace RA_Killer_V1
         }
         private void MailViewerList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ((e.RowIndex != -1))
+            if ((e.RowIndex != -1) && (e.ColumnIndex != -1))
             {
                 BodyViewer.DocumentText = mailList[MailViewerList.SelectedCells[0].RowIndex].HTMLBody;
                 if ((MailViewerList.Columns[e.ColumnIndex].Name == "Attachment"))
@@ -138,6 +142,7 @@ namespace RA_Killer_V1
         }
         private void RefreshBut_Click(object sender, EventArgs e)
         {
+            mailGUIHelper.GetAccesser().syncMails();
             mailList = mailGUIHelper.UpdateMailViewer(ref MailViewerList);
             BodyViewer.DocumentText = "";
         }
@@ -175,5 +180,7 @@ namespace RA_Killer_V1
 
             DBHelper.UpdateDBViewer(ref DBViewer, ref DBListBox);
         }
+
+     
     }
 }

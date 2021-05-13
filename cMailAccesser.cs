@@ -26,6 +26,7 @@ namespace RA_Killer_V1
             outlookNS = m_Application.GetNamespace("MAPI"); 
              mainFolders = outlookNS.Folders as OutLook.Folders;
             
+            
         }
         public void saveAttachment(String  Path, OutLook.Attachment attachment)
         {
@@ -83,6 +84,10 @@ namespace RA_Killer_V1
                 });
             });
 
+        }
+        public void syncMails(bool showDialog = false)
+        {
+            outlookNS.SendAndReceive(showDialog);
         }
         /*public void start() {
 
